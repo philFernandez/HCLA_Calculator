@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Calculator {
     public static void main(String[] args) {
         float operand1 = 0, operand2 = 0;
-        int choice;
+        int choice = 0;
         Scanner in = new Scanner(System.in);
 
         // do calculations until user makes choice 5 to exit
@@ -22,7 +22,13 @@ public class Calculator {
             System.out.println("(4) Division");
             System.out.println("(5) Exit");
             System.out.print("\nEnter Your Choice : ");
-            choice = in.nextInt();
+
+            try {
+                choice = in.nextInt();
+            } catch(InputMismatchException e) {
+                System.out.println("Non-Digit character detected : Program will terminate");
+                System.exit(1);
+            }
 
             // if choice is valid prompt user for operands and then catch potential InputMismatchException
             if (choice == 1 || choice == 2 || choice == 3 || choice == 4) {
