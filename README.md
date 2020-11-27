@@ -7,5 +7,5 @@
 
 ## Mac/Linux
 * Open terminal in top level Calculator directory
-* Run command `java Calculator.calcpack`
+* Run command `java calcpack.Calculator`
 * To recompile run command `javac calcpack/*.java`
