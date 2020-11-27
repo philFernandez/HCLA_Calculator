@@ -1,4 +1,5 @@
 package calcpack;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,7 +12,10 @@ public class Calculator {
         float operand1 = 0, operand2 = 0;
         int choice;
         Scanner in = new Scanner(System.in);
+
+        // do calculations until user makes choice 5 to exit
         do {
+            // prompt user for choice
             System.out.println("(1) Addition");
             System.out.println("(2) Subtraction");
             System.out.println("(3) Multiplication");
@@ -20,6 +24,7 @@ public class Calculator {
             System.out.print("\nEnter Your Choice : ");
             choice = in.nextInt();
 
+            // if choice is valid prompt user for operands and then catch potential InputMismatchException
             if (choice == 1 || choice == 2 || choice == 3 || choice == 4) {
                 try {
                     System.out.print("Enter two numbers : ");
@@ -32,23 +37,24 @@ public class Calculator {
                 }
             }
 
+            // Display correct choice, or error message if invalid choice was given
             switch(choice) {
-                case 1:
+                case 1: // addition
                     System.out.printf("\n%.2f + %.2f = %.2f\n\n", operand1, operand2, operand1+operand2);
                     break;
-                case 2:
+                case 2: // subtraction
                     System.out.printf("\n%.2f - %.2f = %.2f\n\n", operand1, operand2, operand1-operand2);
                     break;
-                case 3:
+                case 3: // multiplication
                     System.out.printf("\n%.2f * %.2f = %.2f\n\n", operand1, operand2, operand1*operand2);
                     break;
-                case 4:
+                case 4: // division
                     System.out.printf("\n%.2f / %.2f = %.2f\n\n", operand1, operand2, operand1/operand2);
                     break;
-                case 5:
+                case 5: // exit
                     System.out.println("Goodbye...");
                     System.exit(0);
-                default:
+                default: // bad choice
                     System.out.println("Make a valid choice (1 - 5)\n");
             }
         } while(choice != 5);
